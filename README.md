@@ -31,6 +31,18 @@ Personalizar el comportamiento de un Web Componente usando **LitElement**, integ
 
 ---
 
+## 
+
+``` JS (escuchar eventos)
+js
+Copiar
+Editar
+document.querySelector('espe-product-card')
+  .addEventListener('product-selected', e => {
+    console.log(e.detail); // { nombre: "Camiseta ESPE", precio: 19.99 }
+  });  ```  
+
+
 ## 🔧 Uso
 
 ### HTML
@@ -41,14 +53,6 @@ Personalizar el comportamiento de un Web Componente usando **LitElement**, integ
   precio="19.99" 
   loading 
   agotado
-></espe-product-card> 
+></espe-product-card> ``` 
 
 
-``` JS (escuchar eventos)
-js
-Copiar
-Editar
-document.querySelector('espe-product-card')
-  .addEventListener('product-selected', e => {
-    console.log(e.detail); // { nombre: "Camiseta ESPE", precio: 19.99 }
-  });  ``` 
