@@ -15,6 +15,11 @@ Personalizar el comportamiento de un Web Componente usando **LitElement**, integ
 ---
 
 ## Estructura del Proyecto 
+-  components/ bien usada.
+- Archivos bien organizados **(index.html, index.js, webpack.config.js, package.json).** 
+- Uso de **Webpack** y **html-webpack-plugin**.
+- Componente definido y registrado con customElements.define. 
+
 ![Captura de ejecución](img/estructura.png)
 
 ## Uso de @property para manejar estados dinámicos 
@@ -35,9 +40,7 @@ Colores oficiales: Usaste #003C71 (azul) y #FFD700 (dorado).
 Tipografía: Arial, como se pide.
 
 Espaciado y diseño claro: Usaste padding, gap, border-radius y un layout de tarjetas responsive. 
-
-
-### 🎨 Para CSS:
+###  CSS:
 ```css
 /* Código CSS aquí */
 :host {
@@ -49,6 +52,20 @@ Espaciado y diseño claro: Usaste padding, gap, border-radius y un layout de tar
   max-width: 300px;
   background-color: white;
 }
+ .nombre {
+      font-size: 1.2em;
+      color: #003C71;
+      margin-bottom: 8px;
+    } 
 ```
-##  Implementación Técnica
+## Eventos personalizados para comunicación 
 
+Se implemento **dispatchEvent** con un evento **product-selected** que notifica cuando se hace clic en el botón.
+
+Esto demuestra comunicación intercomponente usando el modelo de eventos nativo del DOM. Excelente.
+
+![Captura de ejecución](img/DOM.png)
+
+## Validación y Accesibilidad 
+
+Usas aria-label en el botón e incluyes tabindex="0" y role="button" para accesibilidad con teclado.
