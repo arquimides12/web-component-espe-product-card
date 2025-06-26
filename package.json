@@ -1,0 +1,30 @@
+{
+  "name": "web-component-espe-product-card",
+  "version": "1.0.0",
+  "description": "Componente personalizado en LitElement con integración de identidad visual de la ESPE",
+  "main": "index.js",
+  "scripts": {
+    "serve": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arquimides12/web-component-espe-product-card.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arquimides12/web-component-espe-product-card/issues"
+  },
+  "homepage": "https://github.com/arquimides12/web-component-espe-product-card#readme",
+  "dependencies": {
+    "lit-element": "^4.2.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
