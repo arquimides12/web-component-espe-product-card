@@ -12,11 +12,47 @@ Personalizar el comportamiento de un Web Componente usando **LitElement**, integ
 - Temas y estilos alineados al Manual de Imagen de la ESPE (colores institucionales y tipografía).
 - Eventos personalizados para la comunicación entre componentes.
 - Buenas prácticas de desarrollo priorizando la originalidad, sin código generado por IA.
-
 ---
 
 ## Estructura del Proyecto 
 ![Captura de ejecución](img/estructura.png)
 
+## Uso de @property para manejar estados dinámicos 
+Se uso el property para definir: 
+para definir:
+- nombre
+- precio
+- loading
+- agotado
 
+-----------------------
+Esto permite que los atributos cambien dinámicamente desde el HTML o JavaScript, y eso se refleja en el renderizado del componente. Además, usas setTimeout para simular cambios de estado en el producto USB, lo cual muestra dominio de reactividad con LitElement. 
+-----------------------
 
+## Estilos alineados al Manual de Imagen de la ESPE
+Colores oficiales: Usaste #003C71 (azul) y #FFD700 (dorado).
+
+Tipografía: Arial, como se pide.
+
+Espaciado y diseño claro: Usaste padding, gap, border-radius y un layout de tarjetas responsive. 
+
+### 🎨 Para CSS:
+```css
+/* Código CSS aquí */
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  border: 2px solid #003C71;
+  border-radius: 10px;
+  padding: 16px;
+  max-width: 300px;
+  background-color: white;
+}
+
+.nombre {
+  font-size: 1.2em;
+  color: #003C71;
+  margin-bottom: 8px;
+}
+Paso 3
+Aquí ya aparece como un título azul norma 
