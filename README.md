@@ -36,6 +36,7 @@ Tipografía: Arial, como se pide.
 
 Espaciado y diseño claro: Usaste padding, gap, border-radius y un layout de tarjetas responsive. 
 
+
 ### 🎨 Para CSS:
 ```css
 /* Código CSS aquí */
@@ -48,11 +49,6 @@ Espaciado y diseño claro: Usaste padding, gap, border-radius y un layout de tar
   max-width: 300px;
   background-color: white;
 }
+```
+##  Implementación Técnica
 
-.nombre {
-  font-size: 1.2em;
-  color: #003C71;
-  margin-bottom: 8px;
-}
-Paso 3
-Aquí ya aparece como un título azul norma 
