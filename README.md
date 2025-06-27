@@ -174,6 +174,7 @@ Abre tu navegador por lo general con el siguiente link:
 ```bash
 http://localhost:3000 
 ```
+![Captura de ejecución](img/explicacion.png)
 
 ## Conclusión 
 En esta actividad se demostro el uso profesional de LitElement para construir componentes reutilizables con estados dinámicos, diseño institucional, y buena integración con herramientas modernas.
