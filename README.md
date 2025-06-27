@@ -141,4 +141,39 @@ setTimeout(() => {
 
 Cambia de estado automáticamente (loading → agotado).
 
-## 
+## Eventos Personalizados
+El componente emite un evento **product-selected** cuando se hace clic en el botón de selección:
+
+```js 
+document.addEventListener('product-selected', (e) => {
+  console.log('Producto seleccionado →', e.detail);
+});
+
+``` 
+El evento incluye en su detail:
+`nombre`
+`precio`
+Esto permite comunicación con otros componentes o sistemas que escuchen el evento. 
+
+## Ventajas de LitElement 
+
+- Reactividad automática con propiedades.
+
+- Encapsulamiento completo mediante Shadow DOM.
+
+- Plantillas declarativas con html para un código más limpio.
+
+- Integración moderna con Webpack, Vite, etc.
+
+# Ejecución desde consola 
+```bash
+npm run serve
+```
+Abre tu navegador por lo general con el siguiente link:
+
+```bash
+http://localhost:3000 
+```
+
+## Conclusión 
+En esta actividad se demostro el uso profesional de LitElement para construir componentes reutilizables con estados dinámicos, diseño institucional, y buena integración con herramientas modernas.
