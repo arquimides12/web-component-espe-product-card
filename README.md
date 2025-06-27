@@ -25,14 +25,19 @@ Personalizar el comportamiento de un Web Componente usando **LitElement**, integ
 ## Uso de @property para manejar estados dinámicos 
 Se uso el property para definir: 
 para definir:
-- nombre
+- nombre 
 - precio
 - loading
 - agotado
-
------------------------
+ Atributo  | Tipo     |  Descripción                                                   |
+|-----------|----------|---------------------------------------------------------------|
+| `nombre`  | `String` | Nombre del producto.                                          |
+| `precio`  | `Number` | Precio mostrado.                                              |
+| `loading` | `Boolean`| Si está activo, muestra un spinner y desactiva el botón.      |
+| `agotado` | `Boolean`| Si está activo, cambia el botón a "Agotado" y lo desactiva.   | 
+---
 Esto permite que los atributos cambien dinámicamente desde el HTML o JavaScript, y eso se refleja en el renderizado del componente. Además, usas setTimeout para simular cambios de estado en el producto USB, lo cual muestra dominio de reactividad con LitElement. 
------------------------
+---
 
 ## Estilos alineados al Manual de Imagen de la ESPE
 Colores oficiales: Usaste #003C71 (azul) y #FFD700 (dorado).
@@ -69,3 +74,5 @@ Esto demuestra comunicación intercomponente usando el modelo de eventos nativo 
 ## Validación y Accesibilidad 
 
 Usas aria-label en el botón e incluyes tabindex="0" y role="button" para accesibilidad con teclado.
+
+## Atributos y Estado 
