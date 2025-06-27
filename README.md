@@ -148,12 +148,80 @@ El componente emite un evento **product-selected** cuando se hace clic en el bot
 document.addEventListener('product-selected', (e) => {
   console.log('Producto seleccionado →', e.detail);
 });
-
 ``` 
 El evento incluye en su detail:
 `nombre`
 `precio`
 Esto permite comunicación con otros componentes o sistemas que escuchen el evento. 
+
+## ¿Dónde y por qué se usó static get properties()? 
+
+Dentro de tu componente EspeProductCard, el bloque:
+
+```js 
+static get properties() {
+    return {
+      nombre: { type: String },
+      precio: { type: Number },
+      loading: { type: Boolean },
+      agotado: { type: Boolean }
+    };
+  }
+```
+### Aquí se definen 4 propiedades que el componente observa:
+
+- nombre: El nombre del producto. Cuando cambia, se actualiza automáticamente el render.
+- precio: Valor numérico. Se muestra con dos decimales.
+- loading: Booleano. Si es true, muestra un spinner y desactiva el botón.
+- agotado: Booleano. Si es true, el botón se desactiva y muestra el texto "Agotado".
+
+LitElement detecta cambios en estas propiedades y actualiza el DOM automáticamente sin que tú lo hagas manualmente. 
+
+### ¿Qué hace y por qué se usó?
+
+Esta es la forma tradicional de definir propiedades reactivas en LitElement.
+Se usó static get properties() porque no se configuró Babel para permitir decoradores como @property los decoradores (@property) requieren:
+
+- Babel o TypeScript con configuración especial.
+- Un archivo .babelrc y plugins como @babel/plugin-proposal-decorators.
+
+Como en esta práctica no se implementó Babel por simplicidad o compatibilidad, se eligió static get properties() que es 100% válido y funcional en JavaScript puro sin compilación.
+
+salian una gran variedad de errores de compatibilidad. 
+
+### ¿Es lo mismo que @property?
+Sí, funcionalmente hacen lo mismo:
+- Reactividad
+- Soporte a atributos HTML
+- Actualización automática del render()
+
+La diferencia es la forma de escribirlo: 
+
+```js 
+// Requiere Babel/configuración
+@property({ type: String }) nombre = 'Producto';
+```
+```js 
+// Funciona sin herramientas adicionales
+static get properties() {
+  return {
+    nombre: { type: String }
+  };
+}
+```
+## Conexión con el resto del código
+
+Estas propiedades están conectadas con el método render() que se encuentra en nuestro componente:
+
+```js 
+<button 
+  ?disabled=${this.agotado || this.loading}
+  @click=${this.handleClick}>
+  ${this.agotado ? 'Agotado' : 'Seleccionar'}
+  ${this.loading ? html`<span class="spinner"></span>` : ''}
+</button>
+
+```
 
 ## Ventajas de LitElement 
 
@@ -177,4 +245,9 @@ http://localhost:3000
 ![Captura de ejecución](img/explicacion.png)
 
 ## Conclusión 
-En esta actividad se demostro el uso profesional de LitElement para construir componentes reutilizables con estados dinámicos, diseño institucional, y buena integración con herramientas modernas.
+
+- En esta actividad se demostro el uso profesional de LitElement para construir componentes reutilizables con estados dinámicos, diseño institucional, y buena integración con herramientas modernas.
+
+- El uso de static get properties() en lugar de @property fue una decisión técnica consciente por problemas de compatibilidad con .babelrc. Esta elección garantiza que el componente funcione sin necesidad de compiladores adicionales como Babel, manteniendo la simplicidad y compatibilidad con navegadores modernos.
+
+- LitElement facilita la creación de componentes web reutilizables y modernos, gracias a su enfoque basado en propiedades reactivas, plantillas declarativas y estilos encapsulados mediante Shadow DOM.
