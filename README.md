@@ -44,11 +44,11 @@ Si está activo, muestra un spinner y desactiva el botón.
 
 ![Captura de ejecución](img/cambio5.png)
 
+---
 > Debido a problemas de compatibilidad con `.babelrc`, se utilizó `static get properties()` en lugar del decorador `@property`. Esta alternativa es válida y compatible con versiones previas de LitElement.
+---
 
----
 Esto permite que los atributos cambien dinámicamente desde el HTML o JavaScript, y eso se refleja en el renderizado del componente. Además, usas setTimeout para simular cambios de estado en el producto USB, lo cual muestra dominio de reactividad con LitElement. 
----
 
 ## Estilos alineados al Manual de Imagen de la ESPE
 Colores oficiales: Usaste #003C71 (azul) y #FFD700 (dorado).
@@ -125,3 +125,20 @@ Botón deshabilitado con mensaje “Agotado”.
   precio="12">
 </espe-product-card>
 ```
+
+```js
+const card = document.getElementById('dinamica');
+
+setTimeout(() => {
+  card.loading = true;
+}, 2000);
+
+setTimeout(() => {
+  card.loading = false;
+  card.agotado  = true;
+}, 4000);
+``` 
+
+Cambia de estado automáticamente (loading → agotado).
+
+## 
