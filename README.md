@@ -36,9 +36,15 @@ Si está activo, cambia el botón a "Agotado"
 
 ![Captura de ejecución](img/cambio4.png)
 
+cambio realizado en dos segundos 
+
+![Captura de ejecución](img/agotado.png)
+
 Si está activo, muestra un spinner y desactiva el botón. 
 
 ![Captura de ejecución](img/cambio5.png)
+
+> Debido a problemas de compatibilidad con `.babelrc`, se utilizó `static get properties()` en lugar del decorador `@property`. Esta alternativa es válida y compatible con versiones previas de LitElement.
 
 ---
 Esto permite que los atributos cambien dinámicamente desde el HTML o JavaScript, y eso se refleja en el renderizado del componente. Además, usas setTimeout para simular cambios de estado en el producto USB, lo cual muestra dominio de reactividad con LitElement. 
@@ -80,4 +86,42 @@ Esto demuestra comunicación intercomponente usando el modelo de eventos nativo 
 
 Usas aria-label en el botón e incluyes tabindex="0" y role="button" para accesibilidad con teclado.
 
-## Atributos y Estado 
+## Ejemplos de Uso
+
+### 1. Tarjeta estándar
+```html
+<espe-product-card
+  nombre="Sudadera ESPE"
+  precio="24.99">
+</espe-product-card> 
+```
+Tarjeta activa con botón “Seleccionar”.
+
+### 2. Tarjeta con carga (loading)
+```html
+<espe-product-card
+  nombre="Gorra ESPE"
+  precio="9.99"
+  loading>
+</espe-product-card>
+```
+Muestra spinner, botón deshabilitado temporalmente.
+
+### 3. Tarjeta agotada
+```html
+<espe-product-card
+  nombre="Agenda ESPE"
+  precio="4.50"
+  agotado>
+</espe-product-card>
+```
+Botón deshabilitado con mensaje “Agotado”. 
+
+### 4. Tarjeta con estado dinámico desde JS
+```html
+<espe-product-card
+  id="dinamica"
+  nombre="USB ESPE 32 GB"
+  precio="12">
+</espe-product-card>
+```
