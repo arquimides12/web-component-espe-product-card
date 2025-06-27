@@ -220,8 +220,9 @@ Estas propiedades están conectadas con el método render() que se encuentra en 
   ${this.agotado ? 'Agotado' : 'Seleccionar'}
   ${this.loading ? html`<span class="spinner"></span>` : ''}
 </button>
-
 ```
+Esto permite mostrar distintos comportamientos visuales según el estado del componente.
+
 
 ## Ventajas de LitElement 
 
@@ -232,6 +233,40 @@ Estas propiedades están conectadas con el método render() que se encuentra en 
 - Plantillas declarativas con html para un código más limpio.
 
 - Integración moderna con Webpack, Vite, etc.
+
+##  ¿Cómo se relaciona tu componente con Webpack?
+
+Webpack es un empaquetador de módulos que:
+
+Toma todos tus archivos (.js, .css, imágenes, etc.) esto los combina, optimiza y agrupa en un solo archivo final, para genera un index.html que importa el JavaScript compilado y este lanza un servidor local para ver el proyecto en el navegador (npm run serve).
+
+### ¿Qué hace Webpack con tu componente <espe-product-card>?
+Tú defines tu componente en components/espe-product-card.js 
+
+```js 
+class EspeProductCard extends LitElement { ... }
+customElements.define('espe-product-card', EspeProductCard);
+```
+En tu index.js lo importas:
+
+```js 
+import './components/espe-product-card.js';
+```
+Webpack lo detecta como un módulo usado, lo analiza y lo incluye en el archivo final (bundle).
+
+```js 
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+export default {
+  entry: './src/index.js', // aquí comienza Webpack
+  output: { filename: 'bundle.js', path: path.resolve('dist') },
+  plugins: [
+    new HtmlWebpackPlugin({ template: 'src/index.html' })
+  ],
+  devServer: { port: 3000 }
+};
+
+``` 
+El plugin HtmlWebpackPlugin agarra tu index.html y le inserta automáticamente un <script src="bundle.js">.
 
 # Ejecución desde consola 
 ```bash
