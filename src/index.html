@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESPE Product Card TAREA 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    h1 {
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Tarea 2 U2  <code>&lt;ANDERSON CAMPOS &gt;</code></h1>
+
+  <!-- 1. Normal card -->
+  <espe-product-card
+    nombre="Sudadera ESPE"
+    precio="24.99">
+  </espe-product-card>
+
+  <!-- 2. With loading spinner -->
+  <espe-product-card
+    nombre="Gorra ESPE"
+    precio="9.99"
+    loading>
+  </espe-product-card>
+
+  <!-- 3. Out of stock -->
+  <espe-product-card
+    nombre="Agenda ESPE"
+    precio="4.50"
+    agotado>
+  </espe-product-card>
+
+  <!-- 4. Dynamic state change -->
+  <espe-product-card
+    id="dinamica"
+    nombre="USB ESPE 32 GB"
+    precio="12">
+  </espe-product-card>
+</body>
+</html>
